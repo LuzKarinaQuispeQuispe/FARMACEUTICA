@@ -1,0 +1,188 @@
+/* Estilos Generales */
+#layoutSidenav {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos del Sidebar */
+#sidebar_c1 {
+    width: 250px; /* Ancho del sidebar */
+    height: 100vh;
+    background: #004c79;
+    color: #ecf0f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    overflow-y: auto;
+    transition: width 0.3s;
+    z-index: 100;
+}
+
+#sidebar_c1.collapsed {
+    width: 80px; /* Ancho del sidebar cuando se colapsa */
+}
+
+/* Estilos del contenido principal */
+#layoutSidenav_content {
+    margin-left: 250px; /* Se asegura que el contenido empiece a la derecha del sidebar */
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s; /* Transición suave al expandir o colapsar el sidebar */
+}
+
+/* Cuando el sidebar está colapsado */
+#sidebar_c1.collapsed + #layoutSidenav_content {
+    margin-left: 80px; /* Reducimos el espacio para el contenido cuando el sidebar está colapsado */
+}
+
+/* Responsive: ajustamos el layout en pantallas pequeñas */
+@media (max-width: 768px) {
+    #sidebar_c1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 101;
+    }
+    
+    #layoutSidenav_content {
+        margin-left: 0; /* El contenido ocupa toda la pantalla en pantallas pequeñas */
+    }
+}
+
+/* Estilos para el botón de toggle del menú */
+.menu-toggle {
+    align-self: flex-start;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.menu-toggle i {
+    font-size: 1.5rem;
+    color: #ecf0f1;
+}
+
+/* Estilos del logo (ajustado al colapsar el sidebar) */
+.logo img {
+    width: 100px;
+    margin-bottom: 1rem;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed .logo img {
+    width: 50px;
+}
+
+/* Estilos del perfil (ajustado al colapsar el sidebar) */
+.profile {
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: opacity 0.3s, height 0.3s;
+}
+
+.sidebar.collapsed .profile {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Estilos del menú */
+.menu {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    width: 100%;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background 0.3s, padding 0.3s;
+}
+
+.menu li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.menu li a span {
+    transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .menu li a span {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.menu li a:hover {
+    background: #1abc9c;
+}
+
+/* Estilo para el contenido desplegable del menú */
+.menu .dropdown-content {
+    display: none;
+    background: #34495e;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu .dropdown-content li a {
+    padding-left: 2.5rem;
+}
+
+.menu .dropdown-content.show {
+    display: block;
+}
+
+
+
+/* Estilo para el contenedor del logo */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 200px;
+    margin-bottom: 1rem;
+    transition: width 0.3s;
+}
+
+/* Estilo para el contenedor del perfil */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-top: 2px solid #ddd; /* Línea divisoria */
+    margin-top: 20px;
+}
+
+.profile img {
+    width: 50px;   /* Ajusta el tamaño de la imagen de perfil */
+    height: 50px;  /* Mantiene la imagen cuadrada */
+    border-radius: 50%;  /* Hace la imagen redonda */
+    margin-right: 10px;  /* Espacio entre la imagen y el nombre */
+}
+
+.profile p {
+    font-size: 18px;  /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Resalta el nombre del usuario */
+    color: #333;      /* Color del texto */
+}
+

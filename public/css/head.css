@@ -1,0 +1,51 @@
+/* Estilos del encabezado */
+header {
+    width: 100%;
+    padding: 10px; /* Reducir el padding para mantener todo pegado */
+    background-color: #fff; /* Fondo blanco */
+    color: #ecf0f1;
+    display: flex;
+    justify-content: flex-end; /* Alinear todo al lado derecho */
+    align-items: center;
+    border-bottom: 1px solid #ddd; /* Borde fino en la parte inferior */
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end; /* Alineación a la derecha */
+    align-items: center;
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center; /* Asegura que estén en línea */
+}
+
+.header-right h1 {
+    margin: 0;
+    font-size: 1rem;
+    color: #7f8c8d; /* Gris oscuro (plomo) */
+    font-weight: normal;
+    margin-right: 10px; /* Espacio entre el texto y el botón */
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: none;
+    color: #2c3e50; /* Texto oscuro */
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.logout-btn i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.logout-btn:hover {
+    color: #1abc9c; /* Cambio de color al hacer hover */
+}
