@@ -1,0 +1,307 @@
+/* agregar_personal.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-content {
+    max-width: 1500px;
+    margin: 0rem auto 1rem auto; /* Usa un margen negativo para subir el contenedor */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.input-group button {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.input-group button:hover {
+    background: #007acc;
+}
+
+.boton_agregar {
+    background: #073bc9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.boton_agregar:hover {
+    background: #029c92;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: #fff; /* Fondo blanco */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave para el efecto de tabla */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #333; /* Texto oscuro para mejorar la legibilidad */
+}
+
+.table th {
+    background: #f8f8f8; /* Fondo claro para las cabeceras */
+    color: #555; /* Color de texto oscuro pero suave */
+    font-weight: bold;
+}
+
+.table td {
+    background: #fafafa; /* Fondo blanco suave para las celdas */
+}
+
+.table tr:hover td {
+    background: #f1f1f1; /* Efecto hover con color ligeramente gris */
+}
+
+.table tr:first-child th {
+    border-top: none; /* Elimina el borde superior de la primera fila */
+}
+
+.table tr:last-child td {
+    border-bottom: none; /* Elimina el borde inferior de la última fila */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+}
+
+.modal .btn {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal .btn:hover {
+    background: #007acc;
+}
+
+/* Estilo de la barra de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Estilo de los botones de paginación */
+.pagination button {
+    background-color: #1e90ff;  /* Color de fondo azul */
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para cuando el botón está en hover */
+.pagination button:hover {
+    background-color: #007acc;  /* Cambia el color de fondo cuando pasa el mouse */
+}
+
+/* Estilo para el botón deshabilitado (si no hay más páginas) */
+.pagination button:disabled {
+    background-color: #ccc;  /* Fondo gris para el botón deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Estilo para el select de "items por página" */
+.pagination select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Estilo para la información de la página */
+.pagination #pageInfo {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0 10px;
+}
+
+/* Estilo para los números de la página */
+.pagination #currentPage, .pagination #totalPages {
+    font-weight: bold;
+}
+
+/* Centrado de todo el contenido de la paginación */
+.pagination span, .pagination select, .pagination button {
+    align-items: center;
+}
+/*la vida es bella*/
+
+#formularioProducto {
+    display: none; /* Oculto por defecto */
+}
+
+/* Notificacion */
+
+/* Estilo de la notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #00bcd4; /* Celeste */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    width: 300px;
+    z-index: 9999; /* Asegura que la notificación se muestre por encima de otros elementos */
+    opacity: 1; /* Visible por defecto */
+    transform: translateX(20px); /* Inicia ligeramente desplazado */
+    animation: fadeInOut 3s forwards; /* Animación para la aparición y desaparición */
+}
+
+/* Estilo para mensaje de error */
+.notification.error {
+    background-color: #dc3545;  /* Rojo */
+}
+
+/* Animación para la aparición y desaparición */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(20px); /* Inicia ligeramente desplazado */
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(0); /* Alineado al lugar final */
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(20px); /* Desaparece desplazado */
+    }
+}
+
+/* Botones editar y eliminar*/
+/* Estilo general de la tabla */
+table {
+    width: 100%;
+    table-layout: fixed; /* Distribución proporcional de las columnas */
+    border-collapse: collapse; /* Para evitar los espacios entre las celdas */
+}
+
+/* Estilo para las celdas de la tabla */
+td, th {
+    padding: 8px; /* Espaciado interno */
+    text-align: center;
+    border: 1px solid #ddd; /* Añadir borde a las celdas para separarlas */
+}
+
+/* Especificar el ancho para la columna de Modificar (centrado) */
+td.centritoloco {
+    width: 120px; /* Ajusta este valor según el tamaño que desees */
+    white-space: nowrap; /* Evita que el contenido de la celda se divida en varias líneas */
+}
+
+/* Especificar el ancho para las otras columnas (Nombre, Usuario, TipoUsuario) */
+td.nombre, td, td.TipoUsuario_id {
+    width: 150px; /* Ajusta el tamaño según lo que necesites */
+}
+
+/* Estilo adicional para los botones dentro de la columna de modificar */
+a.editarproducto, a.eliminar-producto {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 2px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de editar */
+a.editarproducto {
+    background-color: #f9a011; /* Azul */
+}
+
+/* Estilo para el botón de eliminar */
+a.eliminar-producto {
+    background-color: #dc3545; /* Rojo */
+}
+
+/* Efecto de hover para los botones */
+a.editarproducto:hover, a.eliminar-producto:hover {
+    opacity: 0.8;
+}
+
