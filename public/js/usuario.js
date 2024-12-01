@@ -1,6 +1,5 @@
-let filtroDataAdded = false; // Bandera para indicar si se ha agregado el evento de filtrado
-let productosData; // Variable global para almacenar los datos
-// Carga los eventos principales
+let filtroDataAdded = false; 
+let productosData; 
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     initializePage();
@@ -209,3 +208,151 @@ function enviarProducto(producto) {
     })
     .catch(handleError);
 }
+
+
+/// MODIFICARRRRR ///
+
+function handleResponse(response) {
+    const messageContainer = document.createElement('div');
+
+    if (response.ok) {
+        // Mensaje de éxito
+        messageContainer.textContent = 'Usuario agregado correctamente.';
+        setTimeout(() => messageContainer.remove(), 3000);  // Elimina el mensaje después de 3 segundos
+        actualizarTabla();
+    } else {
+        // Mensaje de error
+        response.json().then(error => {
+            messageContainer.textContent = `Error: ${error.message}`;
+            setTimeout(() => messageContainer.remove(), 3000);  // Elimina el mensaje después de 3 segundos
+        });
+    }
+
+    // Añadir el contenedor de mensaje al body de la página
+    document.body.appendChild(messageContainer);
+}
+
+
+//manejo de error
+function handleError(error) {
+    console.error('Error en la solicitud:', error);
+}
+//inicializa las pagina con sus respectivos registros de tabla por pagina
+function initializePage() {
+    const itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
+    obtenerProductos(1, itemsPerPage);
+}
+//envia a la pagina anterior
+function goToPreviousPage() {
+    const currentPage = parseInt(document.getElementById('currentPage').textContent);
+    if (currentPage > 1) {
+        const itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
+        obtenerProductos(currentPage - 1, itemsPerPage);
+    }
+}
+//manda a la siguiente pagina de tabla
+function goToNextPage() {
+    const currentPage = parseInt(document.getElementById('currentPage').textContent);
+    const totalPages = parseInt(document.getElementById('totalPages').textContent);
+    if (currentPage < totalPages) {
+        const itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
+        obtenerProductos(currentPage + 1, itemsPerPage);
+    }
+}
+//maneja el cambio de items por pagina
+function handleItemsPerPageChange() {
+    obtenerProductos(1, parseInt(this.value));
+}
+//funcion para realizar la busqueda de items 
+function handleSearchInput() {
+    const searchTerm = this.value.trim().toLowerCase();
+    if (searchTerm === '') {
+        const itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
+        obtenerProductos(1, itemsPerPage);
+    } else {
+        fetch(`usuarios.php?search=${searchTerm}`)
+            .then(response => response.json())
+            .then(data => mostrarProductosFiltrados(data, searchTerm));
+    }
+}
+//realiza el filtro en la tabla
+function mostrarProductosFiltrados(data, searchTerm) {
+    const productosFiltrados = data.filter(producto => producto.Nombre.toLowerCase().includes(searchTerm));
+    const tabla = document.getElementById('contenidoTabla');
+    tabla.innerHTML = productosFiltrados.length > 0 ? 
+        productosFiltrados.map(producto => crearFilaProducto(producto)).join('') : 
+        "<tr><td colspan='4'>No hay Usuarios disponibles</td></tr>";
+    agregarEventosEdicionYEliminacion();  // Agregar los event listeners después de actualizar la tabla
+}
+
+//obtiene el producto del servidor
+function obtenerProductos(page, itemsPerPage) {
+    fetch(`usuarios.php?page=${page}&itemsPerPage=${itemsPerPage}`)
+        .then(response => response.json())
+        .then(data => {
+            productosData = data; // Almacenar los datos en la variable global
+
+            actualizarTablaProductos(data, page, itemsPerPage, 0)
+            ocultarLoader();
+        })
+        .catch(error => console.error('Error al obtener los Usuarios:', error));
+}
+//oculta el loader de carga
+function ocultarLoader() {
+    document.getElementById('loader').style.display = 'block';
+    
+}
+//actualiza la tabla despues de una insercion, eliminacion o edicion
+function actualizarTablaProductos(data, page, itemsPerPage, centy) {
+    const tabla = document.getElementById('contenidoTabla');
+    tabla.innerHTML = data.length > 0 ? 
+        data.slice((page - 1) * itemsPerPage, page * itemsPerPage).map(producto => crearFilaProducto(producto)).join('') : 
+        "<tr><td colspan='4'>No hay Usuarios disponibles</td></tr>";
+
+    document.getElementById('currentPage').textContent = page;
+    document.getElementById('totalPages').textContent = Math.ceil(data.length / itemsPerPage);
+    if (!filtroDataAdded) { // Verificar si el evento de filtrado ya se ha agregado
+        agregarEventosFiltrado(data);
+        filtroDataAdded = true; // Cambiar la bandera a true después de agregar el evento
+    }
+    
+    agregarEventosEdicionYEliminacion();
+}
+// crea una fila del item en la tabla
+function crearFilaProducto(producto) {
+    const accionOcultar = producto.Estado == 1 ? "Ocultar" : "Mostrar";
+    const claseOculto = producto.Estado == 0 ? "producto-oculto" : "";
+    let tipo = "";
+    if (producto.TipoUsuario_id == 1){
+        producto.TipoUsuario_id = "Administrador";
+    } else if (producto.TipoUsuario_id == 2){
+        producto.TipoUsuario_id = "Stock";
+    }  else if (producto.TipoUsuario_id == 3){
+        producto.TipoUsuario_id = "Cocina";
+    } 
+
+    return `
+    <tr class="${claseOculto}">
+        <td class="nombre">${producto.Nombre}</td>
+        <td>${producto.Usua}</td>
+        <td>${producto.TipoUsuario_id}</td>
+        <td class="centritoloco">
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <!-- Icono de Editar -->
+                    <a href="#" class="editarproducto" data-id="${producto.idUsuario}", nombre="${producto.Nombre}", usuario="${producto.Usua}", tipousuario="${producto.TipoUsuario_id}">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                    <!-- Icono de Eliminar -->
+                    <a href="#" class="eliminar-producto" data-id="${producto.idUsuario}">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </a>
+                </div>
+            </div>
+        </td>
+    </tr>
+`;
+
+
+}
+
