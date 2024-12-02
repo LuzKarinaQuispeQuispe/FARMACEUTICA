@@ -52,6 +52,33 @@ if (!isset($_SESSION['rol_1'])) {
                     </table>
                 </div>
 
+                <!-- Modal de Agregar y Editar Medicamento -->
+                <div id="myModal" class="modal" data-id="">
+                    <div class="modal-content">
+                        <div class="horizontal">
+                            <h2 id="modalTitle">Agregar Medicamento</h2>
+                            <span class="close">&times;</span>
+                        </div>
+                        <form class="row gy-2 gx-3 align-items-center" id="formAgregarMedicamento">
+                            <div class="col-auto">
+                                <label for="nombreMedicamento" class="visually-hidden">Nombre</label>
+                                <input type="text" class="form-control" id="nombreMedicamento" placeholder="Nombre">
+                            </div>
+                            <div class="col-auto">
+                                <label for="cantidadMedicamento" class="visually-hidden">Cantidad</label>
+                                <input type="text" class="form-control" id="cantidadMedicamento" placeholder="Cantidad">
+                            </div>
+                            <div class="col-auto">
+                                <label for="viaSuministroMedicamento" class="visually-hidden">Vía de Suministro</label>
+                                <input type="text" class="form-control" id="viaSuministroMedicamento" placeholder="Vía de Suministro">
+                            </div>
+                            <div class="submit-btn-edit">
+                                <button type="submit" class="btn btn-primary">Guardar Medicamento</button>
+                                <button type="button" class="btncancelar" id="btnformcancelarAdd">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
