@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Hubo un problema al cargar los medicamentos.");
             });
     }
-
     loadMedicamentos();
 
     // Filtro de búsqueda
