@@ -30,6 +30,11 @@ if (!isset($_SESSION['rol_1'])) {
                 <div class="main-content">
                     <div class="contenedor">
                         <h2>Medicamentos</h2>
+                        <div class="input-group">
+                            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                            <input class="form-control" type="text" id="searchMedicamento" placeholder="Buscar medicamento..." />
+                        </div>
+                        <div><button class="boton_agregar" id="btnAgregarMedicamento">Agregar</button></div>
                     </div>
 
                     <table class="table table-bordered">
