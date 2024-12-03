@@ -8,7 +8,7 @@ if (isset($_GET['cerrar_sesion'])) {
     if (isset($_SESSION[$rol_to_close])) {
         unset($_SESSION[$rol_to_close]);
     }
-    header('location: /src/views/login.php');
+    header('location: ../views/login.php');
     exit();
 }
 
@@ -53,14 +53,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/login.css">
     <title>Farmaceutica</title>
 </head>
 <body>
     <div class="login-box">
         <div class="login-header">
-            <header>Iniciar sesión</header>
-            <img src="../../public/img/logo.png" alt="Descripción de la imagen" width="80" height="50">
+            
+            <img src="../../public/img/logo/logo_blanco.png" alt="Descripción de la imagen" width="80" height="50">
         </div>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
             <div class="input-box">
