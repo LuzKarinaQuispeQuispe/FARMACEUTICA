@@ -175,7 +175,7 @@ function enviarProducto(producto) {
     const searchTerm = document.querySelector('.form-control');
     const originalSearchTerm = searchTerm.value.trim().toLowerCase();
 
-    fetch('http://localhost/Farmacia/src/controllers/ManejoUsuario.php?action=insertar', {
+    fetch('../../src/controllers/ManejoUsuario.php?action=insertar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(producto)
@@ -329,7 +329,7 @@ function crearFilaProducto(producto) {
     } else if (producto.TipoUsuario_id == 2){
         producto.TipoUsuario_id = "Stock";
     }  else if (producto.TipoUsuario_id == 3){
-        producto.TipoUsuario_id = "Cocina";
+        producto.TipoUsuario_id = "ventas";
     } 
 
     return `
@@ -556,7 +556,7 @@ function eliminarProducto(idProducto) {
     const searchTerm = document.querySelector('.form-control');
     const originalSearchTerm = searchTerm.value.trim().toLowerCase();
     console.log(idProducto);
-    fetch(`http://localhost/Farmacia/src/controllers/ManejoUsuario.php?id=${idProducto}`, {
+    fetch(`../../src/controllers/ManejoUsuario.php?id=${idProducto}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     })
@@ -601,3 +601,4 @@ function actualizarTabla() {
     const currentPage = parseInt(document.getElementById('currentPage').textContent);
     obtenerProductos(currentPage, itemsPerPage);
 }
+
