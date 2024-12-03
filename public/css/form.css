@@ -1,0 +1,108 @@
+
+/* Estilo del formulario */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center; /* Para centrar contenido del formulario */
+}
+
+/* Título del formulario */
+form h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px; /* Tamaño más pequeño */
+}
+
+/* Estilo de las etiquetas */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+}
+
+/* Campos de entrada y selección */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Efectos de enfoque */
+input:focus, select:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Botón */
+button {
+    background-color: #6c63ff;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover en el botón */
+button:hover {
+    background-color: #5753d6;
+}
+
+/* Mensajes de respuesta */
+p#response-message {
+    text-align: center;
+    font-size: 14px;
+    color: #d9534f;
+}
+
+p#response-message.success {
+    color: #5cb85c;
+}
+
+/* Estilos generales para los botones de acciones */
+.button-action {
+    padding: 8px 16px;
+    margin: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Botón de Editar */
+.button-action.edit {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.button-action.edit:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+/* Botón de Eliminar */
+.button-action.delete {
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: 1px solid #f44336;
+}
+
+.button-action.delete:hover {
+    background-color: #e53935;
+    color: white;
+}

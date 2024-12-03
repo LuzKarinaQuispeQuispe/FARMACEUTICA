@@ -1,0 +1,127 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten si no hay espacio */
+}
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 calc(20% - 20px); /* Cada tarjeta ocupa un 20% del ancho */
+    min-width: 230px; /* Establece un mínimo para las tarjetas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.card-icon {
+    font-size: 2rem;
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    color: #fff;
+}
+
+.card-content {
+    margin-left: 50px;
+}
+
+.card h3 {
+    margin: 6px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Colores para las tarjetas */
+.card-productos {
+    background-color: #4CAF50; /* Verde */
+}
+
+.card-productos-vendidos {
+    background-color: #FF9800; /* Naranja */
+}
+
+.card-ventas {
+    background-color: #2196F3; /* Azul */
+}
+
+.card-proveedores {
+    background-color: #9C27B0; /* Morado */
+}
+
+.card-productos-vencidos {
+    background-color: #F44336; /* Rojo */
+}
+
+/* Efecto hover */
+.card:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+/* Estilos adicionales para la gráfica de barras */
+.chart-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 7px;
+    font-size: 1rem;
+    color: #ffffff;
+}
+h4 {
+    margin-bottom: 7px;
+    font-size: 1rem;
+    color: #000000;
+}
+canvas {
+    width: 100%;
+    height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* Botón */
+button {
+    background-color: #6c63ff;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover en el botón */
+button:hover {
+    background-color: #5753d6;
+}
