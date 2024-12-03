@@ -20,7 +20,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="../../../public/css/principal.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <?php include('../head.php'); ?> 
+        <?php include('../head1.php'); ?> 
         
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -70,7 +70,7 @@
                                     </div>
                                     
                                     <div class="col-auto">
-                                        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                        <label class="visually-hidden" for="autoSizingSelect">Categoria</label>
                                         <select class="form-select" id="autoSizingSelectcat">Categoria
                                         <option selected disabled hidden>Categoria</option>
                                         <option value="1">Admin</option>
@@ -138,35 +138,35 @@
                                 <form class="row gy-2 gx-3 align-items-center" id="formEditarProducto">
                                     <div class="col-auto">
                                         <p class="p-modal">Nombre</p>
-                                        <label class="visually-hidden" for="autoSizingInput">Nombre</label>
+                                        <label class="visually-hidden" for="autoSizingInput"></label>
                                         <input type="text" class="form-control" id="autoSizingInputnombreEditar" placeholder="Nombre">
                                     </div>
                                     <div class="col-auto">
                                         <p class="p-modal">Usuario</p>
-                                        <label class="visually-hidden" for="autoSizingInput">Usuario</label>
+                                        <label class="visually-hidden" for="autoSizingInput"></label>
                                         <input type="text" class="form-control" id="autoSizingInputprecioEditar" placeholder="Usuario">
                                     </div>
 
                                     <div class="col-auto">
                                         <p class="p-modal">Contraseña</p>
-                                        <label class="visually-hidden" for="autoSizingInput">Contraseña</label>
+                                        <label class="visually-hidden" for="autoSizingInput"></label>
                                         <input type="password" class="form-control" id="autoSizingInputPasswordEditar" placeholder="Contraseña">
                                     </div>
                                     
                                     <div class="col-auto">
                                          <p class="p-modal">Confirmar contraseña</p>
-                                        <label class="visually-hidden" for="autoSizingInput">Confirmar contraseña</label>
+                                        <label class="visually-hidden" for="autoSizingInput"></label>
                                         <input type="password" class="form-control" id="autoSizingInputConfirmPasswordEditar" placeholder="Confirmar contraseña">
                                     </div>
                                     
                                     <div class="col-auto">
                                         <p class="p-modal">Categoria</p>
-                                        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                        <label class="visually-hidden" for="autoSizingSelect"></label>
                                         <select class="form-select" id="autoSizingSelectcatEditar">
                                             <option selected disabled hidden>Categoria</option>
                                             <option value="1">Administrador</option>
-                                            <option value="2">Mozo</option>
-                                            <option value="3">Cocina</option>
+                                            <option value="2">Stock</option>
+                                            <option value="3">ventas</option>
                                         </select>
                                     </div>
                                     <div class="submit-btn-edit">
