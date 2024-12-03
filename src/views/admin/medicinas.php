@@ -17,7 +17,7 @@ if (!isset($_SESSION['rol_1'])) {
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../../../public/css/principal.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <?php include('../head.php'); ?>
+    <?php include('../head1.php'); ?>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -60,17 +60,22 @@ if (!isset($_SESSION['rol_1'])) {
                             <span class="close">&times;</span>
                         </div>
                         <form class="row gy-2 gx-3 align-items-center" id="formAgregarMedicamento">
+                            <!-- Agregamos el campo para ingresar el 'id' manualmente -->
+                            <div class="col-auto">
+                                <label for="idMedicamento" class="visually-hidden">Código (ID)</label>
+                                <input type="number" class="form-control" id="idMedicamento" placeholder="Código (ID)" required>
+                            </div>
                             <div class="col-auto">
                                 <label for="nombreMedicamento" class="visually-hidden">Nombre</label>
-                                <input type="text" class="form-control" id="nombreMedicamento" placeholder="Nombre">
+                                <input type="text" class="form-control" id="nombreMedicamento" placeholder="Nombre" required>
                             </div>
                             <div class="col-auto">
                                 <label for="cantidadMedicamento" class="visually-hidden">Cantidad</label>
-                                <input type="text" class="form-control" id="cantidadMedicamento" placeholder="Cantidad">
+                                <input type="text" class="form-control" id="cantidadMedicamento" placeholder="Cantidad" required>
                             </div>
                             <div class="col-auto">
                                 <label for="viaSuministroMedicamento" class="visually-hidden">Vía de Suministro</label>
-                                <input type="text" class="form-control" id="viaSuministroMedicamento" placeholder="Vía de Suministro">
+                                <input type="text" class="form-control" id="viaSuministroMedicamento" placeholder="Vía de Suministro" required>
                             </div>
                             <div class="submit-btn-edit">
                                 <button type="submit" class="btn btn-primary">Guardar Medicamento</button>
