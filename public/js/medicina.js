@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para obtener los medicamentos de la base de datos
     function loadMedicamentos(search = "") {
-        fetch(`http://localhost/Farmacia/src/controllers/get_medicamentos.php?search=${search}`)
+        fetch(`../../src/controllers/get_medicamentos.php?search=${search}`)
             .then(response => response.json())
             .then(data => {
                 tbody.innerHTML = "";
                 data.forEach(medicamento => {
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
-                        <td>${medicamento.nombre}</td>
+                        <td>${medicamento.id}</td>  <!-- Aquí se muestra 'id' como 'codigo' -->
                         <td>${medicamento.cantidad}</td>
                         <td>${medicamento.via_suministro}</td>
                         <td><button class="btn btn-primary" onclick="editarMedicamento(${medicamento.id})">Editar</button></td>
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Hubo un problema al cargar los medicamentos.");
             });
     }
+
     loadMedicamentos();
 
     // Filtro de búsqueda
@@ -60,16 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     formAgregarMedicamento.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        const id = document.getElementById("nombreMedicamento").value; // Aquí agregamos 'id' manual
         const nombre = document.getElementById("nombreMedicamento").value;
         const cantidad = document.getElementById("cantidadMedicamento").value;
         const viaSuministro = document.getElementById("viaSuministroMedicamento").value;
 
-        let url = "http://localhost/Farmacia/src/controllers/add_medicamento.php";
+        let url = "../../src/controllers/add_medicamento.php";
         let method = "POST";
-        let data = { nombre, cantidad, via_suministro: viaSuministro };
+        let data = { id, nombre, cantidad, via_suministro: viaSuministro };
 
         if (currentMedicamentoId !== null) {
-            url = "http://localhost/Farmacia/src/controllers/editar_medicamento.php";
+            url = "../../src/controllers/editar_medicamento.php";
             method = "PUT";
             data.id = currentMedicamentoId;  // Añadir el id para actualizar
         }
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función de editar medicamento
     window.editarMedicamento = function(id) {
-        fetch(`http://localhost/Farmacia/src/controllers/editar_medicamento.php?id=${id}`)
+        fetch(`../../src/controllers/editar_medicamento.php?id=${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);  // Verifica lo que llega desde el servidor
