@@ -1,0 +1,145 @@
+/* Estilo específico para la página de agregar productos */
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.main-content > form {
+    width: 45%; /* Ocupa el 45% del ancho total */
+    background-color: #f8f9fa; /* Fondo claro para distinguir */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content > form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.main-content > form input, 
+.main-content > form select, 
+.main-content > form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.main-content > form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.main-content > form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.main-content > table {
+    width: 50%; /* Ocupa el 50% del ancho total */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.main-content > table thead {
+    background-color: #343a40;
+    color: white;
+    text-align: left;
+}
+
+.main-content > table th,
+.main-content > table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.main-content > table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.main-content > table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Estilo del formulario */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center; /* Para centrar contenido del formulario */
+}
+
+/* Título del formulario */
+form h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px; /* Tamaño más pequeño */
+}
+
+/* Estilo de las etiquetas */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+}
+
+/* Campos de entrada y selección */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Efectos de enfoque */
+input:focus, select:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Botón */
+button {
+    background-color: #6c63ff;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover en el botón */
+button:hover {
+    background-color: #5753d6;
+}
+
+/* Mensajes de respuesta */
+p#response-message {
+    text-align: center;
+    font-size: 14px;
+    color: #d9534f;
+}
+
+p#response-message.success {
+    color: #5cb85c;
+}

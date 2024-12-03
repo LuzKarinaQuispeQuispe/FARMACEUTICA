@@ -1,0 +1,222 @@
+/* General styles for the sidebar */
+#layoutSidenav {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos del Sidebar */
+#sidebar_c1 {
+    width: 250px; /* Ancho del sidebar */
+    height: 100vh;
+    background: #004c78;
+    color: #ecf0f1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    overflow-y: auto;
+    transition: width 0.3s;
+    z-index: 100;
+}
+
+#sidebar_c1.collapsed {
+    width: 80px; /* Ancho del sidebar cuando se colapsa */
+}
+
+/* Estilos del contenido principal */
+#layoutSidenav_content {
+    margin-left: 250px; /* Se asegura que el contenido empiece a la derecha del sidebar */
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s; /* Transición suave al expandir o colapsar el sidebar */
+}
+
+/* Cuando el sidebar está colapsado */
+#sidebar_c1.collapsed + #layoutSidenav_content {
+    margin-left: 80px; /* Reducimos el espacio para el contenido cuando el sidebar está colapsado */
+}
+
+/* Responsive: ajustamos el layout en pantallas pequeñas */
+@media (max-width: 768px) {
+    #sidebar_c1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 101;
+    }
+    
+    #layoutSidenav_content {
+        margin-left: 0; /* El contenido ocupa toda la pantalla en pantallas pequeñas */
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #004c78; /* Azul similar al de la imagen */
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar img {
+    max-width: 100%;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.logo img {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.profile img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    margin: 0;
+    font-size: 14px;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Menu styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    transition: background 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    background-color: #058a94; /* Un azul más oscuro para hover */
+}
+
+.menu i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* menudesplegable menu */
+.menudesplegable-content {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+    background-color: #003D73; /* Submenú azul más oscuro */
+}
+
+.menudesplegable-content a {
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+.menudesplegable-content a:hover {
+    background-color: #058a94; /* Hover para el submenú */
+}
+
+.menu li .show {
+    display: block;
+}
+
+/* Toggle button styles */
+.menu-toggle {
+    text-align: right;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+.menu-toggle:hover {
+    background-color: #004871;
+}
+
+/* Badge style for the item count */
+.menu a .badge {
+    background-color: #16a085; /* Verde para contar elementos */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Collapsed menu styles */
+.sidebar.collapsed .menu a span {
+    display: none;
+}
+
+.sidebar.collapsed .menu a {
+    justify-content: center;
+}
+
+.sidebar.collapsed .profile p {
+    display: none;
+}
+
+.sidebar.collapsed .logo img {
+    width: 50%;
+}
+
+/* Scrollbar customization */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #004871;
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #00539C;
+}
+

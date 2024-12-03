@@ -1,0 +1,157 @@
+
+#layoutSidenav {
+    display: flex;
+}
+
+#sidebar_c1 {
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+}
+
+#layoutSidenav_content {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.summary, .filters, .table-container, .delete-action {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.filters select, .filters input, .filters button {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+
+.producto-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.producto-table th, .producto-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.delete-action button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-action button:hover {
+    background-color: #c82333;
+}
+
+
+
+/* Estilos generales para los campos de entrada */
+.filters input, .filters select, .filters button {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilo específico para el input de fecha y hora */
+.filters input[type="datetime-local"] {
+    background-color: #ffffff;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Estilo para cuando el campo está enfocado */
+.filters input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de filtro */
+.filters button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Cambiar color del botón al pasar el mouse */
+.filters button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Filtro en una fila con Flexbox */
+.filters-row {
+    display: flex;
+    gap: 20px; /* Espacio entre los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en la pantalla */
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 200px; /* Asegura que cada campo tenga un ancho mínimo */
+}
+
+
+.filters input, .filters select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.filters input[type="datetime-local"] {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Estilo cuando el campo de fecha y hora está enfocado */
+.filters input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+/* Cambiar color del botón al pasar el mouse */
+.filter-button:hover {
+    background-color: #0056b3;
+}
