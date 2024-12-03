@@ -5,15 +5,18 @@ $pdo = $database->getConnection();
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (isset($data['nombre']) && isset($data['cantidad']) && isset($data['via_suministro'])) {
+// Verificamos si todos los campos necesarios están presentes, incluido el id (que ahora es 'codigo')
+if (isset($data['id']) && isset($data['nombre']) && isset($data['cantidad']) && isset($data['via_suministro'])) {
+    $id = $data['id'];  // 'id' ahora es 'codigo'
     $nombre = $data['nombre'];
     $cantidad = $data['cantidad'];
     $via_suministro = $data['via_suministro'];
 
-    $sql = "INSERT INTO medicamentos (nombre, cantidad, via_suministro) VALUES (?, ?, ?)";
+    // Usamos el 'id' manual para la inserción
+    $sql = "INSERT INTO medicamentos (id, nombre, cantidad, via_suministro) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
 
-    if ($stmt->execute([$nombre, $cantidad, $via_suministro])) {
+    if ($stmt->execute([$id, $nombre, $cantidad, $via_suministro])) {
         echo json_encode(['success' => true, 'message' => 'Medicamento agregado correctamente.']);
     } else {
         echo json_encode(['success' => false, 'message' => 'Error al agregar el medicamento.']);
@@ -22,3 +25,5 @@ if (isset($data['nombre']) && isset($data['cantidad']) && isset($data['via_sumin
     echo json_encode(['success' => false, 'message' => 'Datos incompletos.']);
 }
 ?>
+
+
